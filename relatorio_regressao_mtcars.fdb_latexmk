@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1788135717.03707 "/Users/joaopaulo/Desktop/www/learning/ml-regressao-mtcars/relatorio_regressao_mtcars.tex" "relatorio_regressao_mtcars.pdf" "relatorio_regressao_mtcars" 1788135717.65828 0
-  "/Users/joaopaulo/Desktop/www/learning/ml-regressao-mtcars/relatorio_regressao_mtcars.tex" 1788135716.47211 6743 4a04f2261e33dbcdbd29ece5af1c484a ""
+["pdflatex"] 1788135915.83267 "/Users/joaopaulo/Desktop/www/learning/ml-regressao-mtcars/relatorio_regressao_mtcars.tex" "relatorio_regressao_mtcars.pdf" "relatorio_regressao_mtcars" 1788135916.46805 0
+  "/Users/joaopaulo/Desktop/www/learning/ml-regressao-mtcars/relatorio_regressao_mtcars.tex" 1788135915.61986 6827 1c072183f15db6179b792bb50f5196a5 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -73,8 +73,8 @@
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1784762486 3636776 f3797e7a709c411c0a0e494cb5f462e3 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
   "fig1_dispersao.png" 1788135670.09188 101078 eaf7603d8394744c47e11224ac7c0ad1 ""
-  "relatorio_regressao_mtcars.aux" 1788135717.59718 1461 359134bbc6ef5e06c2136bb5a6f27662 "pdflatex"
-  "relatorio_regressao_mtcars.tex" 1788135716.47211 6743 4a04f2261e33dbcdbd29ece5af1c484a ""
+  "relatorio_regressao_mtcars.aux" 1788135916.40541 1461 da70d1f7fdc9a3c0277e3bb6514d6b84 "pdflatex"
+  "relatorio_regressao_mtcars.tex" 1788135915.61986 6827 1c072183f15db6179b792bb50f5196a5 ""
   (generated)
   "relatorio_regressao_mtcars.aux"
   "relatorio_regressao_mtcars.log"

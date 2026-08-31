@@ -26,27 +26,28 @@
 \begin{center}
 {\Large\bfseries\color{azul} Dá para prever o consumo de um carro?}\\[6pt]
 {\small
-UNINASSAU Teresina --- Análise e Desenvolvimento de Sistemas, 4º Período, Turma A\\
-Machine Learning --- Prof. Dr. Alan da Silva Assunção\\[4pt]
+UNINASSAU Teresina, Análise e Desenvolvimento de Sistemas, 4º Período, Turma A\\
+Machine Learning, Prof. Dr. Alan da Silva Assunção\\[4pt]
 \textit{Aluno:} João Paulo Oliveira da Silva\\[4pt]
+\textit{Matricula:} 01915429\\[4pt]
 Agosto de 2026}
 \end{center}
 \vspace{2pt}\hrule\vspace{4pt}
 
 \section{O problema}
 
-Carro pesado e potente gasta mais combustível isso todo mundo sabe. Queremos transformar essa ideia em número e prever o consumo de um carro só olhando suas características. Para isso usamos a \textbf{regressão linear}, que procura a reta que passa mais perto dos dados observados.
+Todo mundo sabe que carro pesado e potente gasta mais combustível. A ideia deste trabalho é transformar essa noção em número e conseguir prever o consumo de um carro só olhando para as características dele. Para isso usei a \textbf{regressão linear}, que procura a reta que passa mais perto dos dados observados.
 
 \begin{itemize}
   \item \textbf{O que queremos prever:} o consumo de combustível do carro.
-  \item \textbf{Variável resposta ($Y$):} \texttt{mpg} (milhas por galão). Quanto maior, mais econômico o carro. É o nosso ``km por litro''.
+  \item \textbf{Variável resposta ($Y$):} \texttt{mpg} (milhas por galão). Quanto maior, mais econômico é o carro. É o nosso ``km por litro''.
   \item \textbf{Variáveis usadas para prever:} \texttt{wt} (peso) e \texttt{hp} (potência do motor).
-  \item \textbf{Por que elas ajudam:} empurrar um carro pesado dá mais trabalho, e esse trabalho sai da queima de combustível. E um motor só entrega mais força porque consome mais combustível a cada explosão.
+  \item \textbf{Por que elas ajudam:} empurrar um carro pesado dá mais trabalho, e esse trabalho sai da queima de combustível. Um motor também só entrega mais força porque consome mais combustível a cada explosão.
 \end{itemize}
 
 \section{Os dados}
 
-Foi usado a base \texttt{mtcars}, que já vem instalada no R. Ela traz informações de \textbf{32 carros} fabricados entre 1973 e 1974, em \textbf{11 colunas}. Não falta nenhum dado.
+Usei a base \texttt{mtcars}, que já vem instalada no R. Ela traz informações de \textbf{32 carros} fabricados entre 1973 e 1974, em \textbf{11 colunas}. Não falta nenhum dado.
 
 \begin{table}[H]
 \centering
@@ -63,7 +64,7 @@ Foi usado a base \texttt{mtcars}, que já vem instalada no R. Ela traz informaç
 \end{tabular}
 \end{table}
 
-O carro mais econômico faz 33,9 mpg e o mais gastão faz 10,4 --- uma diferença de mais de três vezes. Medimos também a \textbf{correlação} de cada característica com o consumo, que mostra se elas andam juntas: peso deu $-0{,}87$ e potência $-0{,}78$. O sinal negativo confirma que, quando uma sobe, o consumo piora.
+O carro mais econômico faz 33,9 mpg e o mais gastão faz 10,4, uma diferença de mais de três vezes. Também medi a \textbf{correlação} de cada característica com o consumo, que mostra se elas andam juntas. O peso deu $-0{,}87$ e a potência deu $-0{,}78$. O sinal negativo confirma que, quando uma sobe, o consumo piora.
 
 \section{Gráfico inicial}
 
@@ -72,10 +73,10 @@ A Figura 1 cruza o peso de cada carro com o seu consumo.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.68\textwidth]{fig1_dispersao.png}
-\caption{Cada bolinha é um carro. Quanto mais à direita, mais pesado; quanto mais acima, mais econômico. A linha vermelha é a reta encontrada pelo modelo.}
+\caption{Cada bolinha é um carro. Quanto mais à direita, mais pesado. Quanto mais acima, mais econômico. A linha vermelha é a reta encontrada pelo modelo.}
 \end{figure}
 
-Na Figura 1, as bolinhas descem da esquerda para a direita e seguem um caminho parecido com uma linha reta. Isso confirma que quanto mais pesado o carro, menos ele anda por galão --- e que a regressão linear é adequada aqui.
+Na Figura 1 as bolinhas descem da esquerda para a direita e seguem um caminho parecido com uma linha reta. Isso confirma que quanto mais pesado o carro, menos ele anda por galão, e mostra que a regressão linear é adequada aqui.
 
 \section{Regressão linear simples (só o peso)}
 
@@ -85,11 +86,11 @@ Comando no R: \texttt{lm(mpg \textasciitilde{} wt, data = mtcars)}. Resultado:
 \text{consumo previsto} = 37{,}2851 - 5{,}3445 \times \text{peso}
 \]
 
-\textbf{O 37,2851 ($\hat\beta_0$):} é o consumo previsto para um carro de peso zero. Como carro nenhum pesa zero, esse número não tem sentido prático --- ele só marca onde a reta começa no gráfico.
+\textbf{O 37,2851 ($\hat\beta_0$):} é o consumo previsto para um carro de peso zero. Como carro nenhum pesa zero, esse número não tem sentido prático. Ele só marca onde a reta começa no gráfico.
 
 \textbf{O $-5{,}3445$ ($\hat\beta_1$):} a cada mil libras a mais de peso (cerca de 450 kg), o carro perde em média 5,34 milhas por galão. O sinal negativo confirma que mais peso significa mais consumo.
 
-\textbf{$R^2$ ajustado $= 0{,}7446$.} Esse número vai de 0 a 1 e diz o quanto o modelo explica. Ou seja: \textbf{74\% das diferenças de consumo entre os carros são explicadas só pelo peso}.
+\textbf{$R^2$ ajustado $= 0{,}7446$.} Esse número vai de 0 a 1 e diz o quanto o modelo explica. Ou seja, \textbf{74\% das diferenças de consumo entre os carros são explicadas só pelo peso}.
 
 \section{Regressão linear múltipla (peso + potência)}
 
@@ -99,7 +100,7 @@ Comando: \texttt{lm(mpg \textasciitilde{} wt + hp, data = mtcars)}. Resultado:
 \text{consumo previsto} = 37{,}2273 - 3{,}8778 \times \text{peso} - 0{,}0318 \times \text{potência}
 \]
 
-\textbf{Houve melhora? Sim.} O $R^2$ ajustado subiu de \textbf{0,7446} para \textbf{0,8148}: agora explicamos 81\% das diferenças de consumo, em vez de 74\%. Um teste feito no R confirmou que essa melhora é real, e não coincidência. A potência traz uma informação que o peso sozinho não dava.
+\textbf{Houve melhora? Sim.} O $R^2$ ajustado subiu de \textbf{0,7446} para \textbf{0,8148}, ou seja, agora explicamos 81\% das diferenças de consumo em vez de 74\%. Um teste feito no R confirmou que essa melhora é real, e não coincidência. A potência traz uma informação que o peso sozinho não dava.
 
 \begin{table}[H]
 \centering
@@ -117,14 +118,14 @@ Peso + potência & \textbf{0,8148} & \textbf{81\%} \\
 
 \section{Treino e teste}
 
-Avaliar o modelo nos mesmos carros que ele estudou seria como corrigir uma prova com o gabarito do próprio aluno. Por isso separamos os dados: \textbf{22 carros para treino} (70\%) e \textbf{10 para teste} (30\%), que o modelo nunca viu.
+Avaliar o modelo nos mesmos carros que ele estudou seria como corrigir uma prova com o gabarito do próprio aluno. Por isso separei os dados em \textbf{22 carros para treino} (70\%) e \textbf{10 para teste} (30\%), que o modelo nunca viu.
 
-Treinando só com os 22 carros, o modelo ficou:
+Treinando só com os 22 carros, o modelo ficou assim:
 \[
 \text{consumo previsto} = 38{,}4553 - 4{,}1089 \times \text{peso} - 0{,}0334 \times \text{potência}
 \]
 
-Depois pedimos que ele chutasse o consumo dos 10 carros guardados e comparamos com o valor real:
+Depois pedi que ele chutasse o consumo dos 10 carros guardados e comparei com o valor real:
 
 \begin{table}[H]
 \centering
@@ -138,11 +139,11 @@ Depois pedimos que ele chutasse o consumo dos 10 carros guardados e comparamos c
 \end{tabular}
 \end{table}
 
-O \textbf{MAE} é o erro médio: o modelo errou o consumo de cada carro por 1,72 mpg, para mais ou para menos. O \textbf{RMSE} é parecido, mas pune mais os erros grandes. Como o consumo médio desses carros é 17,96 mpg, errar 2,06 significa \textbf{errar cerca de 11\%} --- um resultado bom.
+O \textbf{MAE} é o erro médio. O modelo errou o consumo de cada carro por 1,72 mpg, para mais ou para menos. O \textbf{RMSE} é parecido, mas pune mais os erros grandes. Como o consumo médio desses carros é 17,96 mpg, errar 2,06 significa \textbf{errar cerca de 11\%}, o que é um resultado bom.
 
 \section{Conclusão}
 
-Sim, dá para prever o consumo de um carro. O peso sozinho já explica 74\% das diferenças; somando a potência, chegamos a 81\%, com erro médio de menos de 2 mpg em carros que o modelo nunca tinha visto. Vale lembrar que a base tem só 32 carros, todos dos anos 1970, então essas contas não valem para carros de hoje.
+Sim, dá para prever o consumo de um carro. O peso sozinho já explica 74\% das diferenças. Somando a potência, chegamos a 81\%, com erro médio de menos de 2 mpg em carros que o modelo nunca tinha visto. Vale lembrar que a base tem só 32 carros, todos dos anos 1970, então essas contas não valem para carros de hoje.
 
 \vspace{4pt}\hrule\vspace{3pt}
 {\footnotesize\textit{Análises feitas no R. Código completo no arquivo \texttt{trabalho\_ml\_regressao.R}.}}
